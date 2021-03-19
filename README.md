@@ -2,7 +2,7 @@
 (Unofficial Package) This package can make laravel to auto route
 
 Tested on :
-> laravel 7 at March 19 2021
+1. laravel 7 at March 19 2021
 
 # Installation & Sample
 ## Installation

@@ -1,0 +1,24 @@
+{
+    "name": "ofi/laravel-auto-route",
+    "description": "This package can make laravel to auto route",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Teguh Rijanandi",
+            "email": "teguhrijanandi02@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ofi\\route\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "ofi\\route\\": "src/"
+        }
+    }
+}

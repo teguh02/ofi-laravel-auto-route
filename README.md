@@ -55,7 +55,7 @@ if ($route) {return $route;}
 ## 1. Namespace
 The default namespace is <b>App\Http\Controllers</b>
 like a laravel default RouteServiceProvider <a href="https://github.com/laravel/laravel/blob/8.x/app/Providers/RouteServiceProvider.php">here</a>
-You can change with <code>autoRoute::init(['namespace' => "App\Http\Controllers\otherFolder"]);</code>
+You can change with <code>$route = autoRoute::init(['namespace' => "App\Http\Controllers\otherFolder"]);</code>
 ## 2. Method
 The default method is index() (like a codeigniter auto route default method) will call when your request url is single request url
 for example
@@ -69,7 +69,7 @@ is same as
   http://yourlaravelsite.com/sample/index
 ```
 
-You can change default method with <code>autoRoute::init(['defaultMethod' => "defaultMethod"]);</code>
+You can change default method with <code>$route = autoRoute::init(['defaultMethod' => "defaultMethod"]);</code>
 
 # Contributor
 If you want to our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks

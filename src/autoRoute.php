@@ -108,7 +108,7 @@ class autoRoute extends BaseController {
      */
     static private function defaultNamespace()
     {
-        return "\\" . self::$namespace;
+        return "\\" . trim(str_replace("/", "\\", self::$namespace), "\\");
     }
 
 }

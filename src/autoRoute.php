@@ -33,10 +33,7 @@ class autoRoute extends BaseController {
             self::$defaultMethod = $config['defaultMethod'];
         }
 
-        if ($result = self::core()) {
-            return $result;
-        }
-        return false;
+        return self::core();
     }
 
     static private function core()
@@ -85,23 +82,24 @@ class autoRoute extends BaseController {
             // arrange class name
             $arrangeClassName = self::defaultNamespace() . "\\" . $path;
 
-            // if class does not exists
-            if(!class_exists($arrangeClassName)) {
-                // return false
-                return false;
+            // if class exists
+            if(class_exists($arrangeClassName)) {
+                // create new class
+                $newClass = new $arrangeClassName;
+
+                // call the method now
+
+                // if class does not exists
+                if (!method_exists($newClass, $methodName)) {
+                    return abort(404);
+                }
+
+                // if class exists
+                return $newClass->$methodName();
             }
 
-            // create new class
-            $newClass = new $arrangeClassName;
-
-            // call the method now
-
             // if class does not exists
-            if (!method_exists($newClass, $methodName)) {
-                return abort(404);
-            }
-
-            return $newClass->$methodName();
+            abort(404);
         });
     }
 

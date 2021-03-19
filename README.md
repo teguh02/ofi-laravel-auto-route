@@ -35,6 +35,11 @@ autoRoute::init();
 // autoRoute::init(['namespace' => "App\Http\Controllers\otherFolder"]);
 // or
 // autoRoute::init(['defaultMethod' => "defaultMethod"]);
+// or
+// autoRoute::init([
+//     'defaultMethod' => "defaultMethod", 
+//     'namespace' => "App\Http\Controllers\otherFolder"
+// ]);
 
 Route::get('/', function () {
     return view('welcome');

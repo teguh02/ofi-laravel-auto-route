@@ -72,4 +72,4 @@ is same as
 You can change default method with <code>autoRoute::init(['defaultMethod' => "defaultMethod"]);</code>
 
 # Contributor
-If you want to our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks
+If you want to be our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks

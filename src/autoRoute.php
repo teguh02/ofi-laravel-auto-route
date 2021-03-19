@@ -33,7 +33,15 @@ class autoRoute extends BaseController {
             self::$defaultMethod = $config['defaultMethod'];
         }
 
-        return Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}', function(
+        if ($result = self::core()) {
+            return $result;
+        }
+        return false;
+    }
+
+    static private function core()
+    {
+        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}', function(
             $path, 
             $path2 = '\\', 
             $path3 = '\\',
@@ -76,11 +84,19 @@ class autoRoute extends BaseController {
 
             // arrange class name
             $arrangeClassName = self::defaultNamespace() . "\\" . $path;
+
+            // if class does not exists
+            if(!class_exists($arrangeClassName)) {
+                // return false
+                return false;
+            }
+
+            // create new class
             $newClass = new $arrangeClassName;
 
             // call the method now
 
-            // if class does not exist
+            // if class does not exists
             if (!method_exists($newClass, $methodName)) {
                 return abort(404);
             }

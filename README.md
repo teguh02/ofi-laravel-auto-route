@@ -30,20 +30,25 @@ use ofi\route\autoRoute;
 |
 */
 
-autoRoute::init();
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/otherroute', function () {
+    var_dump("other route");
+});
+
+
+// put it at the bottom from other script
+$route = autoRoute::init();
 // or
-// autoRoute::init(['namespace' => "App\Http\Controllers\otherFolder"]);
-// or
-// autoRoute::init(['defaultMethod' => "defaultMethod"]);
-// or
-// autoRoute::init([
+// $route = autoRoute::init([
 //     'defaultMethod' => "defaultMethod", 
 //     'namespace' => "App\Http\Controllers\otherFolder"
 // ]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+if ($route) {return $route;}
 ```
 
 # Configuration

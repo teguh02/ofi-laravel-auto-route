@@ -13,7 +13,7 @@ Tested on :
 5. Add package init (see the sample) in your route file
 6. Create sample.php controller in App/Http/Controllers (see controller sample below)
 7. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command
-8. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code>. Is it works? if does'nt work you can open new issue here. Thanks
+8. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code> (see in screenshoot section below) . Is it works? if does'nt work you can open new issue here. Thanks
 
 ## Sample
 ### web.php
@@ -110,3 +110,8 @@ You can change default method with <code>autoRoute::init(['defaultMethod' => "de
 
 # Contributor
 If you want to be our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks
+
+# Screenshoot
+![image](https://user-images.githubusercontent.com/43981051/111856122-3dfdbb00-895b-11eb-99f7-a6f7dbd4612b.png)
+
+![image](https://user-images.githubusercontent.com/43981051/111856150-6685b500-895b-11eb-8eff-2df57d93a550.png)

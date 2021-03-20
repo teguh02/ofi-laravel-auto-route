@@ -11,7 +11,7 @@ class autoRoute extends BaseController {
     // default namespace
     protected static $namespace = 'App\Http\Controllers';
 
-    // default method 
+    // default method
     protected static $defaultMethod = 'index';
 
     /**
@@ -38,7 +38,7 @@ class autoRoute extends BaseController {
 
     static private function core()
     {
-        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}', function(
+        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}/{path12?}/{path13?}/{path14?}/{path15?}', function(
             $path, 
             $path2 = '\\', 
             $path3 = '\\',
@@ -49,7 +49,11 @@ class autoRoute extends BaseController {
             $path8 = '\\',
             $path9 = '\\',
             $path10 = '\\',
-            $path11 = '\\'
+            $path11 = '\\',
+            $path12 = '\\',
+            $path13 = '\\',
+            $path14 = '\\',
+            $path15 = '\\'
         ) {
             // clean path
             $path = strtok($path, '?');
@@ -63,13 +67,31 @@ class autoRoute extends BaseController {
             $path9 = $path9 == '\\' ? "\\" : "\\" . strtok($path9, '?');
             $path10 = $path10 == '\\' ? "\\" : "\\" . strtok($path10, '?');
             $path11 = $path11 == '\\' ? "\\" : "\\" . strtok($path11, '?');
+            $path12 = $path12 == '\\' ? "\\" : "\\" . strtok($path12, '?');
+            $path13 = $path13 == '\\' ? "\\" : "\\" . strtok($path13, '?');
+            $path14 = $path14 == '\\' ? "\\" : "\\" . strtok($path14, '?');
+            $path15 = $path15 == '\\' ? "\\" : "\\" . strtok($path15, '?');
 
             // arrange all path
-            $path = $path . $path2 . $path3 . $path4 . $path5 . $path6 . $path7 . $path8 . $path9 . $path10 . $path11;
+            $path = $path   .
+                    $path2  .
+                    $path3  .
+                    $path4  .
+                    $path5  .
+                    $path6  .
+                    $path7  .
+                    $path8  .
+                    $path9  .
+                    $path10 .
+                    $path11 .
+                    $path12 .
+                    $path13 .
+                    $path14 .
+                    $path15 ;
 
             // remove \\ from last path
             $path = rtrim($path, "\\");
-            
+
             // get class and method name
             $explode = explode("\\", $path);
             if (count($explode) === 1) {
@@ -100,7 +122,8 @@ class autoRoute extends BaseController {
 
             // if class does not exists
             abort(404);
-        });
+        })
+        -> name('autoRouting');
     }
 
     /**

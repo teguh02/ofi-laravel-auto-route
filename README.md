@@ -11,8 +11,10 @@ Tested on :
 3. Wait until finish
 4. Open your routes/web.php and import this package class with <code>use ofi\route\autoRoute;</code>
 5. Add package init (see the sample) in your route file
+6. Create sample controller in App/Http/Controllers (see controller sample below)
 
 ## Sample
+### web.php
 See my web.php file below
 
 ```php
@@ -49,6 +51,39 @@ autoRoute::init();
 //     'defaultMethod' => "defaultMethod", 
 //     'namespace' => "App\Http\Controllers\otherFolder"
 // ]);
+```
+
+### sample.php
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+/**
+ * We will call this controller later
+ * using auto route
+ */
+
+class sample extends Controller
+{
+    public function index()
+    {
+        var_dump('index');
+    }
+
+    public function time()
+    {
+        var_dump(now());
+    }
+
+    public function defaultMethod()
+    {
+        var_dump('default method');
+    }
+}
+
 ```
 
 # Configuration

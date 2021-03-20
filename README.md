@@ -3,6 +3,14 @@
 
 Tested on :
 1. laravel 7 at March 19 2021
+2. Laravel 8 at March 20 2021
+
+# Demo
+We already install laravel 8 in heroku app, you can visit <a href="https://ofi-laravel-auto-route.herokuapp.com">here</a>, and see sample.php below you can visit like this
+```
+    https://ofi-laravel-auto-route.herokuapp.com/sample
+    https://ofi-laravel-auto-route.herokuapp.com/sample/time
+```
 
 # Installation & Sample
 ## Installation

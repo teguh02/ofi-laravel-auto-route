@@ -18,11 +18,12 @@ Youtube video here https://www.youtube.com/watch?v=OM6fz1ZGF6U
 1. Install laravel framework
 2. Install this package in laravel framework with <code>composer require ofi/laravel-auto-route</code>
 3. Wait until finish
-4. Open your routes/web.php and import this package class with <code>use ofi\route\autoRoute;</code>
-5. Add package init (see the sample) in your route file
-6. Create sample.php controller in App/Http/Controllers (see controller sample below)
-7. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command
-8. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code> (see in screenshoot section below) . Is it works? if does'nt work you can open new issue here. Thanks
+4. Publish config file with
+5. Open your routes/web.php and import this package class with <code>use ofi\route\autoRoute;</code>
+6. Add package init (see the sample) in your route file
+7. Create sample.php controller in App/Http/Controllers (see controller sample below)
+8. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command
+9. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code> (see in screenshoot section below) . Is it works? if does'nt work you can open new issue here. Thanks
 
 ## Sample
 ### web.php

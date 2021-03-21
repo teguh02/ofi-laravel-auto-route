@@ -19,7 +19,7 @@ Youtube video here https://www.youtube.com/watch?v=OM6fz1ZGF6U
 2. Install this package in laravel framework with <code>composer require ofi/laravel-auto-route</code>
 3. Wait until finish
 4. Publish config file with
-5. Open your routes/web.php and import this package class with <code>use ofi\route\autoRoute;</code>
+5. Open your routes/web.php and import this package class with <code>use Ofi\Route\AutoRoute;</code>
 6. Add package init (see the sample) in your route file
 7. Create sample.php controller in App/Http/Controllers (see controller sample below)
 8. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command

@@ -121,6 +121,10 @@ You can change default method with change default method in config file <a href=
 # Contributor
 If you want to be our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks
 
+<p>Thanks to :</p>
+
+@coziboy - coziboy profile <a href="https://github.com/coziboy">here</a>
+
 # Screenshoot
 ![image](https://user-images.githubusercontent.com/43981051/111856122-3dfdbb00-895b-11eb-99f7-a6f7dbd4612b.png)
 

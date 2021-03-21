@@ -18,7 +18,7 @@ Youtube video here https://www.youtube.com/watch?v=OM6fz1ZGF6U
 1. Install laravel framework
 2. Install this package in laravel framework with <code>composer require ofi/laravel-auto-route</code>
 3. Wait until finish
-4. Publish config file with
+4. Publish config file with <code>php artisan vendor:publish --provider="Ofi\Route\OfiServiceProvider" --tag=autoroute.config</code>
 5. Open your routes/web.php and import this package class with <code>use Ofi\Route\AutoRoute;</code>
 6. Add package init (see the sample) in your route file
 7. Create sample.php controller in App/Http/Controllers (see controller sample below)

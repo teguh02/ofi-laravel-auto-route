@@ -102,7 +102,7 @@ See autoroute.php file in config folder
 ## 1. Namespace
 The default namespace is <b>App\Http\Controllers</b>
 like a laravel default RouteServiceProvider <a href="https://github.com/laravel/laravel/blob/8.x/app/Providers/RouteServiceProvider.php">here</a>
-You can change with change default namespace in config file
+You can change with change default namespace in config file <a href="https://github.com/coziboy/ofi-laravel-auto-route/blob/5d8d0db8c25b4883bd5b53179e23f8139016b3c6/config/autoroute.php#L5">here</a>
 ## 2. Method
 The default method is index() (like a codeigniter auto route default method) will call when your request url is single request url
 for example
@@ -116,7 +116,7 @@ is same as
   http://yourlaravelsite.com/sample/index
 ```
 
-You can change default method with change default method in config file
+You can change default method with change default method in config file <a href="https://github.com/coziboy/ofi-laravel-auto-route/blob/5d8d0db8c25b4883bd5b53179e23f8139016b3c6/config/autoroute.php#L8">here</a>
 
 # Contributor
 If you want to be our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks

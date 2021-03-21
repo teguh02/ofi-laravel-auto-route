@@ -21,8 +21,8 @@ Youtube video here
 3. Wait until finish
 4. Publish config file with <code>php artisan vendor:publish --provider="Ofi\Route\OfiServiceProvider" --tag=autoroute.config</code>
 5. Open your routes/web.php and import this package class with <code>use Ofi\Route\AutoRoute;</code>
-6. Add package init (see the sample) in your route file <a href="https://github.com/teguh02/ofi-laravel-auto-route#webphp">here</a>
-7. Create sample.php controller in App/Http/Controllers (see controller sample <a href="https://github.com/teguh02/ofi-laravel-auto-route#webphp">below</a>)
+6. Add package init (see the sample) in your route file <a href="#webphp">here</a>
+7. Create sample.php controller in App/Http/Controllers (see controller sample <a href="#samplephp">below</a>)
 8. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command
 9. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code> (see in screenshoot section below) . Is it works? if does'nt work you can open new issue here. Thanks
 

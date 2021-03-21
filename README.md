@@ -94,7 +94,7 @@ class sample extends Controller
 ```
 
 # Configuration
-See autoroute.php file in config folder
+See autoroute.php file in /yourLaravelFolder/config/autoroute.php
 ## 1. Namespace
 The default namespace is <b>App\Http\Controllers</b>
 like a laravel default RouteServiceProvider <a href="https://github.com/laravel/laravel/blob/8.x/app/Providers/RouteServiceProvider.php">here</a>

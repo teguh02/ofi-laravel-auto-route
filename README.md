@@ -57,11 +57,6 @@ Route::get('/otherroute', function () {
 
 // put it at the bottom from other script
 AutoRoute::init();
-// or
-// AutoRoute::init([
-//     'defaultMethod' => "defaultMethod", 
-//     'namespace' => "App\Http\Controllers\otherFolder"
-// ]);
 ```
 
 ### sample.php

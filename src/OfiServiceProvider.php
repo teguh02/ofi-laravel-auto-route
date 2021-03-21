@@ -26,7 +26,7 @@ class OfiServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/autoroute.php', 'autoroute');
+        $this->mergeConfigFrom(__DIR__.'/../config/autoroute.php', 'autoroute');
 
         // Register the service the package provides.
         $this->app->singleton('autoroute', function ($app) {
@@ -53,7 +53,7 @@ class OfiServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../config/autoroute.php' => config_path('autoroute.php'),
+            __DIR__.'/../config/autoroute.php' => config_path('autoroute.php'),
         ], 'autoroute.config');
     }
 }

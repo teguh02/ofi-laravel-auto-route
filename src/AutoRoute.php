@@ -1,46 +1,44 @@
 <?php
 
-namespace ofi\route;
+namespace Ofi\Route;
 
-// import laravel class
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 
-class autoRoute extends BaseController {
+class AutoRoute extends Controller
+{
 
     // default namespace
-    protected static $namespace = 'App\Http\Controllers';
+    protected static $namespace;
 
     // default method
-    protected static $defaultMethod = 'index';
+    protected static $defaultMethod;
 
     /**
      * To turn on auto route
      */
-    static public function init(array $config = [])
+    public static function init(array $config = [])
     {
-        if (
-            isset($config['namespace']) &&
-            !empty($config['namespace'])
-        ) {
+        if (isset($config['namespace']) && !empty($config['namespace'])) {
             self::$namespace = $config['namespace'];
+        } else {
+            self::$namespace = config('autoroute.namespace');
         }
 
-        if (
-            isset($config['defaultMethod']) &&
-            !empty($config['defaultMethod'])
-        ) {
+        if (isset($config['defaultMethod']) && !empty($config['defaultMethod'])) {
             self::$defaultMethod = $config['defaultMethod'];
+        } else {
+            self::$defaultMethod = config('autoroute.defaultMethod');
         }
 
         return self::core();
     }
 
-    static private function core()
+    private static function core()
     {
-        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}/{path12?}/{path13?}/{path14?}/{path15?}', function(
-            $path, 
-            $path2 = '\\', 
+        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}/{path12?}/{path13?}/{path14?}/{path15?}', function (
+            $path,
+            $path2 = '\\',
             $path3 = '\\',
             $path4 = '\\',
             $path5 = '\\',
@@ -74,20 +72,20 @@ class autoRoute extends BaseController {
 
             // arrange all path
             $path = $path   .
-                    $path2  .
-                    $path3  .
-                    $path4  .
-                    $path5  .
-                    $path6  .
-                    $path7  .
-                    $path8  .
-                    $path9  .
-                    $path10 .
-                    $path11 .
-                    $path12 .
-                    $path13 .
-                    $path14 .
-                    $path15 ;
+                $path2  .
+                $path3  .
+                $path4  .
+                $path5  .
+                $path6  .
+                $path7  .
+                $path8  .
+                $path9  .
+                $path10 .
+                $path11 .
+                $path12 .
+                $path13 .
+                $path14 .
+                $path15;
 
             // remove \\ from last path
             $path = rtrim($path, "\\");
@@ -97,7 +95,7 @@ class autoRoute extends BaseController {
             if (count($explode) === 1) {
                 $methodName = self::$defaultMethod;
             } else {
-                $methodName = $explode[ count($explode) - 1 ];
+                $methodName = $explode[count($explode) - 1];
             }
             $path = str_replace("\\" . $methodName, "", $path);
 
@@ -105,7 +103,7 @@ class autoRoute extends BaseController {
             $arrangeClassName = self::defaultNamespace() . "\\" . $path;
 
             // if class exists
-            if(class_exists($arrangeClassName)) {
+            if (class_exists($arrangeClassName)) {
                 // create new class
                 $newClass = new $arrangeClassName;
 
@@ -123,15 +121,14 @@ class autoRoute extends BaseController {
             // if class does not exists
             abort(404);
         })
-        -> name('autoRouting');
+            ->name('autoRouting');
     }
 
     /**
      * Get default Controllers namespace
      */
-    static private function defaultNamespace()
+    private static function defaultNamespace()
     {
         return "\\" . trim(str_replace("/", "\\", self::$namespace), "\\");
     }
-
 }

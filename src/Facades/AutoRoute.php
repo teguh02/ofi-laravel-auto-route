@@ -13,6 +13,6 @@ class AutoRoute extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return "autoroute";
+        return 'autoroute';
     }
 }

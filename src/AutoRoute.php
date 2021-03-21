@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 class AutoRoute extends Controller
 {
-
     // default namespace
     protected static $namespace;
 
@@ -15,17 +14,17 @@ class AutoRoute extends Controller
     protected static $defaultMethod;
 
     /**
-     * To turn on auto route
+     * To turn on auto route.
      */
     public static function init(array $config = [])
     {
-        if (isset($config['namespace']) && !empty($config['namespace'])) {
+        if (isset($config['namespace']) && ! empty($config['namespace'])) {
             self::$namespace = $config['namespace'];
         } else {
             self::$namespace = config('autoroute.namespace');
         }
 
-        if (isset($config['defaultMethod']) && !empty($config['defaultMethod'])) {
+        if (isset($config['defaultMethod']) && ! empty($config['defaultMethod'])) {
             self::$defaultMethod = $config['defaultMethod'];
         } else {
             self::$defaultMethod = config('autoroute.defaultMethod');
@@ -55,52 +54,52 @@ class AutoRoute extends Controller
         ) {
             // clean path
             $path = strtok($path, '?');
-            $path2 = $path2 == '\\' ? "\\" : "\\" . strtok($path2, '?');
-            $path3 = $path3 == '\\' ? "\\" : "\\" . strtok($path3, '?');
-            $path4 = $path4 == '\\' ? "\\" : "\\" . strtok($path4, '?');
-            $path5 = $path5 == '\\' ? "\\" : "\\" . strtok($path5, '?');
-            $path6 = $path6 == '\\' ? "\\" : "\\" . strtok($path6, '?');
-            $path7 = $path7 == '\\' ? "\\" : "\\" . strtok($path7, '?');
-            $path8 = $path8 == '\\' ? "\\" : "\\" . strtok($path8, '?');
-            $path9 = $path9 == '\\' ? "\\" : "\\" . strtok($path9, '?');
-            $path10 = $path10 == '\\' ? "\\" : "\\" . strtok($path10, '?');
-            $path11 = $path11 == '\\' ? "\\" : "\\" . strtok($path11, '?');
-            $path12 = $path12 == '\\' ? "\\" : "\\" . strtok($path12, '?');
-            $path13 = $path13 == '\\' ? "\\" : "\\" . strtok($path13, '?');
-            $path14 = $path14 == '\\' ? "\\" : "\\" . strtok($path14, '?');
-            $path15 = $path15 == '\\' ? "\\" : "\\" . strtok($path15, '?');
+            $path2 = $path2 == '\\' ? '\\' : '\\'.strtok($path2, '?');
+            $path3 = $path3 == '\\' ? '\\' : '\\'.strtok($path3, '?');
+            $path4 = $path4 == '\\' ? '\\' : '\\'.strtok($path4, '?');
+            $path5 = $path5 == '\\' ? '\\' : '\\'.strtok($path5, '?');
+            $path6 = $path6 == '\\' ? '\\' : '\\'.strtok($path6, '?');
+            $path7 = $path7 == '\\' ? '\\' : '\\'.strtok($path7, '?');
+            $path8 = $path8 == '\\' ? '\\' : '\\'.strtok($path8, '?');
+            $path9 = $path9 == '\\' ? '\\' : '\\'.strtok($path9, '?');
+            $path10 = $path10 == '\\' ? '\\' : '\\'.strtok($path10, '?');
+            $path11 = $path11 == '\\' ? '\\' : '\\'.strtok($path11, '?');
+            $path12 = $path12 == '\\' ? '\\' : '\\'.strtok($path12, '?');
+            $path13 = $path13 == '\\' ? '\\' : '\\'.strtok($path13, '?');
+            $path14 = $path14 == '\\' ? '\\' : '\\'.strtok($path14, '?');
+            $path15 = $path15 == '\\' ? '\\' : '\\'.strtok($path15, '?');
 
             // arrange all path
-            $path = $path   .
-                $path2  .
-                $path3  .
-                $path4  .
-                $path5  .
-                $path6  .
-                $path7  .
-                $path8  .
-                $path9  .
-                $path10 .
-                $path11 .
-                $path12 .
-                $path13 .
-                $path14 .
+            $path = $path.
+                $path2.
+                $path3.
+                $path4.
+                $path5.
+                $path6.
+                $path7.
+                $path8.
+                $path9.
+                $path10.
+                $path11.
+                $path12.
+                $path13.
+                $path14.
                 $path15;
 
             // remove \\ from last path
-            $path = rtrim($path, "\\");
+            $path = rtrim($path, '\\');
 
             // get class and method name
-            $explode = explode("\\", $path);
+            $explode = explode('\\', $path);
             if (count($explode) === 1) {
                 $methodName = self::$defaultMethod;
             } else {
                 $methodName = $explode[count($explode) - 1];
             }
-            $path = str_replace("\\" . $methodName, "", $path);
+            $path = str_replace('\\'.$methodName, '', $path);
 
             // arrange class name
-            $arrangeClassName = self::defaultNamespace() . "\\" . $path;
+            $arrangeClassName = self::defaultNamespace().'\\'.$path;
 
             // if class exists
             if (class_exists($arrangeClassName)) {
@@ -110,7 +109,7 @@ class AutoRoute extends Controller
                 // call the method now
 
                 // if class does not exists
-                if (!method_exists($newClass, $methodName)) {
+                if (! method_exists($newClass, $methodName)) {
                     return abort(404);
                 }
 
@@ -125,10 +124,10 @@ class AutoRoute extends Controller
     }
 
     /**
-     * Get default Controllers namespace
+     * Get default Controllers namespace.
      */
     private static function defaultNamespace()
     {
-        return "\\" . trim(str_replace("/", "\\", self::$namespace), "\\");
+        return '\\'.trim(str_replace('/', '\\', self::$namespace), '\\');
     }
 }

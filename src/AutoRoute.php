@@ -13,6 +13,9 @@ class AutoRoute extends Controller
     // default method
     protected static $defaultMethod;
 
+    // default allowed http method
+    protected static $allowedHttp;
+
     /**
      * To turn on auto route.
      */
@@ -22,9 +25,12 @@ class AutoRoute extends Controller
         return self::core();
     }
 
+    /**
+     * Core from this package
+     */
     private static function core()
     {
-        Route::any('/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}/{path12?}/{path13?}/{path14?}/{path15?}', function (
+        Route::match(self::allowedHttpMethod(), '/{path}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}/{path9?}/{path10?}/{path11?}/{path12?}/{path13?}/{path14?}/{path15?}', function (
             $path,
             $path2 = '\\',
             $path3 = '\\',
@@ -121,6 +127,17 @@ class AutoRoute extends Controller
     }
 
     /**
+     * To load all default allowed http method
+     */
+    private static function allowedHttpMethod(): array
+    {
+        $result = self::$allowedHttp;
+
+        // Uppercase all result
+        return (array) array_change_key_case($result, CASE_UPPER);
+    }
+
+    /**
      * To load all configuration from config.file
      */
     private static function loadConfig(): void
@@ -133,5 +150,8 @@ class AutoRoute extends Controller
 
         // set default method
         self::$defaultMethod = $config->defaultMethod;
+
+        // set default allowed method
+        self::$allowedHttp = $config->allowedHttp;
     }
 }

@@ -16,20 +16,9 @@ class AutoRoute extends Controller
     /**
      * To turn on auto route.
      */
-    public static function init(array $config = [])
+    public static function init()
     {
-        if (isset($config['namespace']) && ! empty($config['namespace'])) {
-            self::$namespace = $config['namespace'];
-        } else {
-            self::$namespace = config('autoroute.namespace');
-        }
-
-        if (isset($config['defaultMethod']) && ! empty($config['defaultMethod'])) {
-            self::$defaultMethod = $config['defaultMethod'];
-        } else {
-            self::$defaultMethod = config('autoroute.defaultMethod');
-        }
-
+        self::loadConfig();
         return self::core();
     }
 
@@ -129,5 +118,20 @@ class AutoRoute extends Controller
     private static function defaultNamespace()
     {
         return '\\'.trim(str_replace('/', '\\', self::$namespace), '\\');
+    }
+
+    /**
+     * To load all configuration from config.file
+     */
+    private static function loadConfig(): void
+    {
+        // load all configuration from
+        $config = (object) config('autoroute');
+
+        // set default namespace
+        self::$namespace = $config->namespace;
+
+        // set default method
+        self::$defaultMethod = $config->defaultMethod;
     }
 }

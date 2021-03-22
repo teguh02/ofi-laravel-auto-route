@@ -5,6 +5,8 @@ Tested on :
 1. laravel 7 at March 19 2021
 2. Laravel 8 at March 20 2021
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fteguh02%2Fofi-laravel-auto-route&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=People+Visit&edge_flat=false)](https://hits.seeyoufarm.com)
+
 # Demo
 We already install laravel 8 in heroku app and we install this package in version v1.4, you can visit <a href="https://ofi-laravel-auto-route.herokuapp.com">here</a>, and see sample.php below you can visit like this
 ```

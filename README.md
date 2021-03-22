@@ -6,7 +6,7 @@ Tested on :
 2. Laravel 8 at March 20 2021
 
 # Demo
-We already install laravel 8 in heroku app, you can visit <a href="https://ofi-laravel-auto-route.herokuapp.com">here</a>, and see sample.php below you can visit like this
+We already install laravel 8 in heroku app and we install this package in version v1.4, you can visit <a href="https://ofi-laravel-auto-route.herokuapp.com">here</a>, and see sample.php below you can visit like this
 ```
     https://ofi-laravel-auto-route.herokuapp.com/sample
     https://ofi-laravel-auto-route.herokuapp.com/sample/time
@@ -114,6 +114,9 @@ is same as
 ```
 
 You can change default method with change default method in config file <a href="https://github.com/coziboy/ofi-laravel-auto-route/blob/5d8d0db8c25b4883bd5b53179e23f8139016b3c6/config/autoroute.php#L8">here</a>
+
+## 3. Allowed Http Method
+See <a href="https://github.com/teguh02/ofi-laravel-auto-route/blob/d955d16f1e332c60da3c59b6af1f8ae6ca06ed17/config/autoroute.php#L14">here</a>. For example if you just only define GET in allowedHttp array, so you can visit your auto routing url in GET Method only.
 
 # Contributor
 If you want to be our contributor you can open new issue and tell whats your problem, and we will fix it. Thanks

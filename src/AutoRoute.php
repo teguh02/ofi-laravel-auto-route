@@ -48,23 +48,22 @@ class AutoRoute extends Controller
             $path15 = '\\'
         ) {
             // clean path
-            $path = strtok($path, '?');
-            $path2 = $path2 == '\\' ? '\\' : '\\'.strtok($path2, '?');
-            $path3 = $path3 == '\\' ? '\\' : '\\'.strtok($path3, '?');
-            $path4 = $path4 == '\\' ? '\\' : '\\'.strtok($path4, '?');
-            $path5 = $path5 == '\\' ? '\\' : '\\'.strtok($path5, '?');
-            $path6 = $path6 == '\\' ? '\\' : '\\'.strtok($path6, '?');
-            $path7 = $path7 == '\\' ? '\\' : '\\'.strtok($path7, '?');
-            $path8 = $path8 == '\\' ? '\\' : '\\'.strtok($path8, '?');
-            $path9 = $path9 == '\\' ? '\\' : '\\'.strtok($path9, '?');
-            $path10 = $path10 == '\\' ? '\\' : '\\'.strtok($path10, '?');
-            $path11 = $path11 == '\\' ? '\\' : '\\'.strtok($path11, '?');
-            $path12 = $path12 == '\\' ? '\\' : '\\'.strtok($path12, '?');
-            $path13 = $path13 == '\\' ? '\\' : '\\'.strtok($path13, '?');
-            $path14 = $path14 == '\\' ? '\\' : '\\'.strtok($path14, '?');
-            $path15 = $path15 == '\\' ? '\\' : '\\'.strtok($path15, '?');
+            $path2 = self::_cleanPath($path2);
+            $path3 = self::_cleanPath($path3);
+            $path4 = self::_cleanPath($path4);
+            $path5 = self::_cleanPath($path5);
+            $path6 = self::_cleanPath($path6);
+            $path7 = self::_cleanPath($path7);
+            $path8 = self::_cleanPath($path8);
+            $path9 = self::_cleanPath($path9);
+            $path10 = self::_cleanPath($path10);
+            $path11 = self::_cleanPath($path11);
+            $path12 = self::_cleanPath($path12);
+            $path13 = self::_cleanPath($path13);
+            $path14 = self::_cleanPath($path14);
+            $path15 = self::_cleanPath($path15);
 
-            // arrange all path
+            // merge all path
             $path = $path.
                 $path2.
                 $path3.
@@ -124,6 +123,18 @@ class AutoRoute extends Controller
     private static function defaultNamespace()
     {
         return '\\'.trim(str_replace('/', '\\', self::$namespace), '\\');
+    }
+
+    /**
+     * To clean and arrange path
+     */
+    private static function _cleanPath($params)
+    {
+        if ($params == '\\') {
+            return '\\';
+        }
+
+        return '\\'.$params;
     }
 
     /**

@@ -27,6 +27,7 @@ Youtube video here
 7. Create sample.php controller in App/Http/Controllers (see controller sample <a href="#samplephp">below</a>)
 8. (skip to step 8 when you alerady running your laravel application) now run your laravel application with serve command
 9. try to call <code>/sample</code> or <code>/sample/time</code> or <code>/sample/index</code> (see in screenshoot section <a href="#screenshoot">below</a>) . Is it works? if does'nt work you can open new issue here. Thanks
+10. For other documentation you can see <a href="https://github.com/teguh02/ofi-laravel-auto-route/wiki">wiki page</a>
 
 ## Sample
 ### web.php

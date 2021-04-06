@@ -100,14 +100,21 @@ class AutoRoute extends Controller
                 // create new class
                 $newClass = new $arrangeClassName;
 
-                // call the method now
-
                 // if class does not exists
                 if (! method_exists($newClass, $methodName)) {
                     return abort(404);
                 }
 
-                // if class exists
+                // check is ____() method is exists?
+                if (method_exists($arrangeClassName, '____')) {
+                    self::handleMiddlewareMethod($arrangeClassName, $methodName);
+                }
+
+                if ($methodName == '____') {
+                    abort(403, "Auto Route: You can't access this method");
+                }
+
+                // call the method now
                 return $newClass->$methodName();
             }
 
@@ -164,5 +171,31 @@ class AutoRoute extends Controller
 
         // set default allowed method
         self::$allowedHttp = $config->allowedHttp;
+    }
+
+    /**
+     * To handle ____() method
+     * ____() is a auto routing middleware method
+     */
+    private static function handleMiddlewareMethod($className, $methodName)
+    {
+        $middlewareArray = (array) $className::____();
+
+        foreach ($middlewareArray as $key => $value) {
+            if ($methodName == $key) {
+                $method = $middlewareArray[$key];
+
+                if ('boolean' != gettype($method())) {
+                    throw new \Exception("Auto Route Error: Middleware [" . $key . "] is a " . gettype($method()) . " and return '". $method() ."' . Middleware [" . $key . "] must a boolean");
+                }
+
+                // if false show forbiden error
+                if (!$method()) {
+                    return abort(403, "Auto Route: You can't access this method");
+                }
+            }
+        }
+
+        return true;
     }
 }
